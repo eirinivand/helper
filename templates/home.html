@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <title>CSV Validator for uploading at Target</title>
+</head>
+<body>
+{% extends "base.html" %}
+{% block content %}
+    <section id="top" class="one dark">
+        <div class="container">
+            <header>
+                <h2 class="alt">Hi! I'm <strong>DCVM Helper</strong>.</h2>
+                <p>Here to make your life at work easier.</p>
+            </header>
+        </div>
+    </section>
+
+    <section id="csvvalidator" class="two">
+        <div class="container">
+
+            <header>
+                <h2>CSV Validator for uploading at Target</h2>
+            </header>
+            <form action="http://localhost:5000/csvvalidator/validate" method="POST"
+                  enctype="multipart/form-data">
+                <input type="file" name="file"/>
+                <input type="submit"/>
+            </form>
+        </div>
+    </section>
+
+{% endblock %}
+</body>
+</html>

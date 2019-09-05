@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+{% extends "base.html" %}
+{% block content %}
+
+    <section id="csvvalidator" class="three">
+        <div class="container">
+            <header>
+                <h2 class="logo">CSV Validator for uploading at Target</h2>
+                <p>
+                    Uploaded & Checked file: {{ result['file'] }} <br> File has been removed from server.
+                </p>
+            </header>
+            <div class="row">
+                {% for k, v  in result['result'].items() %}
+                    <div class="col-2 col-12-mobile"><p><b>{{ k }}</b></p></div>
+                    <div class="col-10">
+                        <table>
+                            {% for e in v %}
+                                <tr>
+                                    <td>  {{ e }}</td>
+                                </tr>
+                            {% endfor %}
+                        </table>
+                    </div>
+
+                {% endfor %}
+            </div>
+            <script>
+                let list = {{ result['patterns']|tojson  }}
+                    function myFunction() {
+                        let patternToFind = $("#search_form_input").val();
+
+                        let htmlToShow = '<table>';
+                        if (patternToFind) {
+                            for (let k in eval(list)) {
+                                let findregex = '';
+                                for (let i in patternToFind) {
+                                    findregex += '[' + patternToFind[i] + ']';
+                                }
+                                let found = list[k].search(findregex);
+                                if (found >= 0) {
+                                    htmlToShow += '<tr><td>' + list[k] + '</td><td> &nbsp;&nbsp;&nbsp;&nbsp;  | </td><td>&nbsp;&nbsp; Line ' + k + '</td></tr>'
+                                }
+                            }
+                        }
+                        htmlToShow += '</table>';
+                        $("#place_for_suggestions").html(htmlToShow);
+                    }
+            </script>
+            <br>
+
+            <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+            <section id="searchpattern" class="four">
+                <div class="container">
+                    <header>
+                        <h3> Search for pattern of special characters in hashed MSISDN </h3>
+                    </header>
+                    <div class="row">
+                        <div class="col-12">
+                            <form>
+                                <input type="text" id="search_form_input" onkeyup="myFunction()"
+                                       placeholder="i.e. //+"/>
+                                <div id="place_for_suggestions"></div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {##}
+            {#{{ result }}#}
+
+        </div>
+    </section>
+{% endblock %}
+</body>
+</html>

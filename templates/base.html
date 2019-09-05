@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<!--
+	Eventually by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+<head>
+    <title>Prologue by HTML5 UP</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <link rel="stylesheet" href="../static/css/main.css"/>
+</head>
+<body class="is-preload">
+<!-- Header -->
+<div id="header">
+
+    <div class="top">
+
+        <!-- Logo -->
+        <div id="logo">
+      <!--      <span class="image avatar48"><img src="../static/images/avatar.jpg" alt=""/></span> -->
+            <h1 id="title"><span style="color: firebrick">Vodafone</span> DCVM Helper </h1>
+            <p>created by DCVM Team</p>
+        </div>
+
+        <!-- Nav -->
+        <nav id="nav">
+            <ul>
+                <li><a href="{{ url_for('home') }}" id="top-link"><span class="icon solid fa-home">Home</span></a>
+                </li>
+                <li><a href="{{ url_for('home') }}#csvvalidator" id="portfolio-link"><span
+                        class="icon solid fa-th">CSV Validator</span></a>
+                </li>
+            </ul>
+        </nav>
+
+    </div>
+
+
+</div>
+
+<!-- Main -->
+<div id="main">
+
+    {% block content %}
+    {% endblock %}
+
+
+</div>
+<div id="footer">
+
+<span class="copyright">    &copy; DCVM Helper.
+        Credits: <a href="http://html5up.net">HTML5 UP</a>, <a
+            href='https://www.linkedin.com/in/eirinivandorou/'>Eirini
+        Vandorou</a>
+</span>
+
+</div>
+<!-- Scripts -->
+<script src="../static/js/main.js"></script>
+
+</body>
+</html>
