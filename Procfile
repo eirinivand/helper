@@ -1,1 +1,1 @@
-web: gunicorn dcvmhelp:create_app
+web: gunicorn helper:create_app

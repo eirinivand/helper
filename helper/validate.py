@@ -5,7 +5,7 @@ import re
 
 from werkzeug.utils import secure_filename
 
-from auth import login_required
+from helper.auth import login_required
 
 bp = Blueprint('csvvalidator', __name__, url_prefix='/csvvalidator')
 

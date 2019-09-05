@@ -3,10 +3,11 @@ import os
 from flask import Flask, render_template
 
 
-def create_app():
+def create_app(env, start_response):
     # create and configure the app
     happ = Flask(__name__, instance_relative_config=True)
     happ.config.from_mapping(
+        SECRET_KEY=env['SECRET_KEY'],
         DATABASE=os.path.join(happ.instance_path, 'helper.sqlite'),
     )
     # ensure the instance folder exists
@@ -19,11 +20,11 @@ def create_app():
     def home():
         return render_template("home.html")
 
-    import db
+    import helper.db
     db.init_app(happ)
-    import auth
+    import helper.auth
     happ.register_blueprint(auth.bp)
-    import validate
+    import helper.validate
     happ.register_blueprint(validate.bp)
     happ.add_url_rule('/', endpoint='csvvalidator')
 
