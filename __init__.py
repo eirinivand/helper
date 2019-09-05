@@ -3,7 +3,7 @@ import os
 from flask import Flask, render_template
 
 
-def create_app(environ, start_response):
+def create_app():
     # create and configure the app
     happ = Flask(__name__, instance_relative_config=True)
     happ.config.from_mapping(
