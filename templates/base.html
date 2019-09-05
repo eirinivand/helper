@@ -19,7 +19,7 @@
 
         <!-- Logo -->
         <div id="logo">
-      <!--      <span class="image avatar48"><img src="../static/images/avatar.jpg" alt=""/></span> -->
+            <!--      <span class="image avatar48"><img src="../static/images/avatar.jpg" alt=""/></span> -->
             <h1 id="title"><span style="color: firebrick">Vodafone</span> DCVM Helper </h1>
             <p>created by DCVM Team</p>
         </div>
@@ -32,6 +32,21 @@
                 <li><a href="{{ url_for('home') }}#csvvalidator" id="portfolio-link"><span
                         class="icon solid fa-th">CSV Validator</span></a>
                 </li>
+                {% if session['user_id'] %}
+                    <li>
+                        <a href="{{ url_for('auth.logout') }}" id="logout"><span
+                                class="icon solid fa-th">Log Out</span></a>
+                    </li>
+                    <li>
+                        <a href="{{ url_for('auth.register') }}" id="register"><span
+                                class="icon solid fa-th">Register User</span></a>
+                    </li>
+                {% else %}
+                    <li>
+                        <a href="{{ url_for('auth.login') }}" id="login"><span
+                                class="icon solid fa-th">Log In</span></a>
+                    </li>
+                {% endif %}
             </ul>
         </nav>
 

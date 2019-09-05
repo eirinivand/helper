@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+{% extends "base.html" %}
+{% block content %}
+    <section id="login" class="three">
+        <div class="container">
+            <form action="/auth/login" method="post">
+                <input type="text" name="username" id="username" placeholder="Username" required>
+                <br>
+                <input type="password" name="password" id="password" placeholder="Password" required>
+                <br>
+                <br>
+                <input type="submit" value="Log In">
+            </form>
+        </div>
+    </section>
+{% endblock %}
+</body>
+</html>

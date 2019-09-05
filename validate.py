@@ -5,10 +5,13 @@ import re
 
 from werkzeug.utils import secure_filename
 
+from auth import login_required
+
 bp = Blueprint('csvvalidator', __name__, url_prefix='/csvvalidator')
 
 
 @bp.route('/validate', methods=['POST'])
+@login_required
 def upload_file():
     if request.method == 'POST':
         result = {}
