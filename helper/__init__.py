@@ -3,11 +3,11 @@ import os
 from flask import Flask, render_template
 
 
-def create_app(env, start_response):
+def create_app(environ, start_response):
     # create and configure the app
     happ = Flask(__name__, instance_relative_config=True)
     happ.config.from_mapping(
-        SECRET_KEY=env['SECRET_KEY'],
+        SECRET_KEY=os.environ.get("SECRET_KEY"),
         DATABASE=os.path.join(happ.instance_path, 'helper.sqlite'),
     )
     # ensure the instance folder exists
