@@ -14,3 +14,7 @@ def get_metadata():
 def recreate_database():
     db.drop_all()
     db.create_all()
+
+
+def create_db():
+    db.create_all()
