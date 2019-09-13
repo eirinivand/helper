@@ -1,4 +1,4 @@
-from helper.app import create_app
+from helper import app
 
 if __name__ == '__main__':
-    app.run()
+    app.app.run()
