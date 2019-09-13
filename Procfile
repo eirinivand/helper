@@ -1,1 +1,0 @@
-web: gunicorn helper:'create_app()'
