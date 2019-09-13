@@ -11,7 +11,7 @@ bp = Blueprint('csvvalidator', __name__, url_prefix='/csvvalidator')
 
 
 @bp.route('/validate', methods=['POST'])
-@login_required
+# @login_required
 def upload_file():
     if request.method == 'POST':
         result = {}
